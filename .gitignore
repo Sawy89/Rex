@@ -1,0 +1,22 @@
+### TYPE ###
+*.sql.design
+*.asv
+*.pyc
+*.jpg
+*.png
+*.csv
+*.mat
+*.xlsx
+*.db
+
+
+### FOLDERS ###
+
+
+
+### FILES ###
+
+
+
+### EXCEPTIONS ###
+#!Nestore/static/*.jpg

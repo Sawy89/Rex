@@ -1,0 +1,39 @@
+<!-- Pagina di base comune -->
+<html>
+    <head>
+		<!-- Titolo della pagina -->
+        {% if title %}
+			<title>{{ title }} - REX</title>
+        {% else %}
+			<title>REX</title>
+        {% endif %}
+    </head>
+	
+    <body>
+		<!-- Link di controllo -->
+        <div>
+			REX:
+			<a href="{{ url_for('index') }}">Home</a>
+			{% if current_user.is_anonymous %}
+				<a href="{{ url_for('login') }}">Login</a>
+			{% else %}
+				<a href="{{ url_for('logout') }}">Logout</a>
+			{% endif %}
+		</div>
+		
+		<!-- lista dei messaggi Flash -->
+        <hr>
+        {% with messages = get_flashed_messages() %}
+			{% if messages %}
+			<ul>
+				{% for message in messages %}
+					<li>{{ message }}</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+        {% endwith %}
+		
+		<!-- Blocco -->
+        {% block content %}{% endblock %}
+    </body>
+</html>
